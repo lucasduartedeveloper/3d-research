@@ -106,21 +106,6 @@ $(document).ready(function() {
     camera.position.set(0, 5, 3.75);
     camera.lookAt(0, 0, 0);
 
-    btnLeft = document.createElement("button");
-    btnLeft.style.position = "fixed";
-    btnLeft.innerText = "<";
-    btnLeft.style.bottom = 160+"px";
-    btnLeft.style.left = sw/2-80+"px";
-    btnLeft.style.width = "50px";
-    btnLeft.style.height = "50px";
-    btnLeft.style.border = "1px solid #aaffaa";
-    //btnLeft.style.borderRadius = "10%";
-    document.body.appendChild(btnLeft);
-    $(btnLeft).on("click", function() {
-        scene.rotateY(-(Math.PI/2)/5);
-        //ws.send("BOOK-ORDER|"+playerId+"|3D|"+scene.rotation.y);
-    });
-
     btnToggleTexture = document.createElement("button");
     btnToggleTexture.style.position = "fixed";
     btnToggleTexture.innerText = "=";
@@ -167,6 +152,43 @@ $(document).ready(function() {
         }
     });
 
+    controlLight = false;
+    btnToggleControlLight = document.createElement("button");
+    btnToggleControlLight.style.position = "fixed";
+    btnToggleControlLight.innerText = "*";
+    btnToggleControlLight.style.bottom = 215+"px";
+    btnToggleControlLight.style.left = sw/2-80+"px";
+    btnToggleControlLight.style.width = "50px";
+    btnToggleControlLight.style.height = "50px";
+    btnToggleControlLight.style.border = "1px solid #aaffaa";
+    //btnLeft.style.borderRadius = "10%";
+    document.body.appendChild(btnToggleControlLight);
+    $(btnToggleControlLight).on("click", function() {
+        controlLight = !controlLight;
+    });
+
+    
+    btnLeft = document.createElement("button");
+    btnLeft.style.position = "fixed";
+    btnLeft.innerText = "<";
+    btnLeft.style.bottom = 160+"px";
+    btnLeft.style.left = sw/2+30+"px";
+    btnLeft.style.width = "50px";
+    btnLeft.style.height = "50px";
+    btnLeft.style.border = "1px solid #aaffaa";
+    //btnLeft.style.borderRadius = "10%";
+    document.body.appendChild(btnLeft);
+    $(btnLeft).on("click", function() {
+        if (controlLight) {
+            light.position.x -= 0.1;
+            lightPoint.position.x -= 0.1;
+        }
+        else {
+            scene.rotateY(-(Math.PI/2)/5);
+        }
+        //ws.send("BOOK-ORDER|"+playerId+"|3D|"+scene.rotation.y);
+    });
+
     btnUp = document.createElement("button");
     btnUp.style.position = "fixed";
     btnUp.innerText = "^";
@@ -178,7 +200,13 @@ $(document).ready(function() {
     //btnUp.style.borderRadius = "10%";
     document.body.appendChild(btnUp);
     $(btnUp).on("click", function() {
-        scene.rotateX((Math.PI/2)/5);
+        if (controlLight) {
+            light.position.z -= 0.1;
+            lightPoint.position.z -= 0.1;
+        }
+        else {
+            scene.rotateX((Math.PI/2)/5);
+        }
         //ws.send("BOOK-ORDER|"+playerId+"|3D|"+scene.rotation.y);
     }); 
 
@@ -193,7 +221,13 @@ $(document).ready(function() {
     //btnDown.style.borderRadius = "10%";
     document.body.appendChild(btnDown);
     $(btnDown).on("click", function() {
-        scene.rotateX(-(Math.PI/2)/5);
+        if (controlLight) {
+            light.position.z += 0.1;
+            lightPoint.position.z += 0.1;
+        }
+        else {
+            scene.rotateX(-(Math.PI/2)/5);
+        }
         //ws.send("BOOK-ORDER|"+playerId+"|3D|"+scene.rotation.y);
     });
     $(btnDown).on("dblclick", function() {
@@ -211,7 +245,13 @@ $(document).ready(function() {
     //btnRight.style.borderRadius = "10%";
     document.body.appendChild(btnRight);
     $(btnRight).on("click", function() {
-        scene.rotateY((Math.PI/2)/5);
+        if (controlLight) {
+            light.position.x += 0.1;
+            lightPoint.position.x += 0.1;
+        }
+        else {
+            scene.rotateY((Math.PI/2)/5);
+        }
         //ws.send("BOOK-ORDER|"+playerId+"|3D|"+scene.rotation.y);
     });
 
