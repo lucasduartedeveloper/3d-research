@@ -161,7 +161,7 @@ $(document).ready(function() {
                 cropSquare("img/banana.png", function(dataUrl) {
                     lightMap.loadTexture(dataUrl);
                     lightMap.material.wireframe = false;
-                    createLightMap(dataUrl);
+                    //createLightMap(dataUrl);
                 });
                 break;
         }
