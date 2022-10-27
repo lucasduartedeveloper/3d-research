@@ -39,12 +39,17 @@ var cropSquare = function(url, callback) {
     max_size = 32,// TODO : pull max size from a site config
     width = image.width,
     height = image.height;
+    offsetX = 0;
+    offsetY = 0;
+
     if (width < height) {
+       offsetY = 0;
        if (width > max_size) {
            height *= max_size / width;
            width = max_size;
        }
    } else {
+       offsetX = 0;
        if (height > max_size) {
            width *= max_size / height;
            height = max_size;
@@ -52,7 +57,8 @@ var cropSquare = function(url, callback) {
    }
    canvas.width = width;
    canvas.height = height;
-   canvas.getContext('2d').drawImage(image, 0, 0, width, height);
+   canvas.getContext('2d').drawImage(
+       image, offsetX, offsetY, width, height);
        var dataUrl = canvas.toDataURL('image/jpeg');
        callback(dataUrl)
    }
