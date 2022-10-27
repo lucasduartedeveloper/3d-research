@@ -279,6 +279,7 @@ var createLightMap = function(url, callback) {
         var x = 0;
         var y = 0;
 
+        this.ctx.imageSmoothingEnabled = true;
         this.ctx.drawImage(this, x, y);
 
         var imgData = this.ctx.getImageData(0, 0, 32, 32);
