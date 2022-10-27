@@ -132,6 +132,7 @@ $(document).ready(function() {
     //btnLeft.style.borderRadius = "10%";
     document.body.appendChild(btnToggleTexture);
     $(btnToggleTexture).on("click", function() {
+        if (interval) clearInterval(interval);
         lightMap.modeNo += 1;
         lightMap.modeNo = lightMap.modeNo > 2 ?
         0 : lightMap.modeNo;
@@ -322,7 +323,7 @@ var createLightMap = function(url, callback) {
 var set = function() {
     var i = 0;
     var j = 0;
-    var interval = setInterval(function() {
+    interval = setInterval(function() {
         if (j >= 32) { j = 0; i++; };
         if (i >= 32) { i = 0; clearInterval(interval); return; };
         vertexArray = lightMap.geometry.getAttribute("position").array;
