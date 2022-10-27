@@ -132,18 +132,30 @@ $(document).ready(function() {
     //btnLeft.style.borderRadius = "10%";
     document.body.appendChild(btnToggleTexture);
     $(btnToggleTexture).on("click", function() {
-        lightMap.texture = !lightMap.texture;
-        if (lightMap.texture) {
-            cropSquare("img/test-0.png", function(dataUrl) {
-                lightMap.loadTexture(dataUrl);
-                lightMap.material.wireframe = false;
-                createLightMap(dataUrl);
-            });
-        }
-        else {
-            lightMap.removeTexture();
-            lightMap.material.wireframe = true;
-            restart();
+        lightMap.modeNo += 1;
+        lightMap.modeNo = lightMap.modeNo > 2 ?
+        0 : lightMap.modeNo;
+        lightMap.mode = lightMap.modes[lightMap.modeNo];
+        switch (lightMap.mode) {
+            case "blank":
+                lightMap.removeTexture();
+                lightMap.material.wireframe = true;
+                restart();
+                break;
+            case "textured":
+                cropSquare("img/test-0.png", function(dataUrl) {
+                    lightMap.loadTexture(dataUrl);
+                    lightMap.material.wireframe = false;
+                    createLightMap(dataUrl);
+                });
+                break;
+            case "wireframe":
+                cropSquare("img/test-0.png", function(dataUrl) {
+                    lightMap.loadTexture(dataUrl);
+                    lightMap.material.wireframe = true;
+                    createLightMap(dataUrl);
+                });
+                break;
         }
     });
 
@@ -389,6 +401,8 @@ THREE.createPlane4 = function() { //vertices, faces) {
     lightMap = new THREE.Mesh(planeGeometry, planeMaterial);
     scene.add(lightMap);
     lightMap.texture = false;
+    lightMap.modeNo = 0;
+    lightMap.modes = ["blank", "wireframe", "textured"];
     lightMap.position.x = 0;
     lightMap.position.y = 0.9;
     lightMap.position.z = 0;
