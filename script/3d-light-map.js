@@ -134,7 +134,7 @@ $(document).ready(function() {
     $(btnToggleTexture).on("click", function() {
         if (interval) clearInterval(interval);
         lightMap.modeNo += 1;
-        lightMap.modeNo = lightMap.modeNo > 2 ?
+        lightMap.modeNo = lightMap.modeNo > 3 ?
         0 : lightMap.modeNo;
         lightMap.mode = lightMap.modes[lightMap.modeNo];
         switch (lightMap.mode) {
@@ -147,13 +147,20 @@ $(document).ready(function() {
                 cropSquare("img/banana.png", function(dataUrl) {
                     lightMap.loadTexture(dataUrl);
                     lightMap.material.wireframe = false;
-                    createLightMap(dataUrl);
+                    restart();
                 });
                 break;
             case "wireframe":
                 cropSquare("img/banana.png", function(dataUrl) {
                     lightMap.loadTexture(dataUrl);
                     lightMap.material.wireframe = true;
+                    createLightMap(dataUrl);
+                });
+                break;
+            case "textured-volume":
+                cropSquare("img/banana.png", function(dataUrl) {
+                    lightMap.loadTexture(dataUrl);
+                    lightMap.material.wireframe = false;
                     createLightMap(dataUrl);
                 });
                 break;
@@ -408,7 +415,8 @@ THREE.createPlane4 = function() { //vertices, faces) {
     scene.add(lightMap);
     lightMap.texture = false;
     lightMap.modeNo = 0;
-    lightMap.modes = ["blank", "wireframe", "textured"];
+    lightMap.modes = 
+    ["blank", "textured", "wireframe", "textured-volume"];
     lightMap.position.x = 0;
     lightMap.position.y = 0.9;
     lightMap.position.z = 0;
