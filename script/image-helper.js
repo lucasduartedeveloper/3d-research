@@ -43,17 +43,17 @@ var cropSquare = function(url, callback) {
     offsetY = 0;
 
     if (width < height) {
-       offsetY = 0;
        if (width > max_size) {
            height *= max_size / width;
            width = max_size;
        }
+       offsetY = ((height-max_size)/2)*-1;
    } else {
-       offsetX = 0;
        if (height > max_size) {
            width *= max_size / height;
            height = max_size;
        }
+       offsetX = ((width-max_size)/2)*-1;;
    }
    canvas.width = width;
    canvas.height = height;
