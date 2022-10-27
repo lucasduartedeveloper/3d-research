@@ -259,7 +259,7 @@ $(document).ready(function() {
     info.style.color = "#ccc";
     info.innerText = "close";
     info.style.left = sw-120+"px";
-    info.style.paddingRight = "5px";
+    info.style.paddingRight = "10px";
     info.style.top = sw-48+"px";
     info.style.width = "100px";
     info.style.height = "18px";
