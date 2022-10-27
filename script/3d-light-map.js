@@ -302,14 +302,7 @@ var createLightMap = function(url, callback) {
             newArray.push(diff);
         }
 
-        vertexArray = lightMap.geometry.getAttribute("position").array;
-        for (let i = 0; i < (vertexArray.length/3); i++) {
-            let random = THREE.MathUtils.randFloat(0, 0.25);
-            vertexArray[3 * i + 2] += random;
-            //vertexArray[3 * i + 5] += random;
-            //vertexArray[3 * i + 8] += random;
-        }
-        lightMap.geometry.getAttribute("position").needsUpdate = true;
+        set();
     };
     img.src = url;
 };
@@ -321,18 +314,30 @@ var set = function() {
         if (j >= 32) { j = 0; i++; };
         if (i >= 32) { i = 0; clearInterval(interval); return; };
         vertexArray = lightMap.geometry.getAttribute("position").array;
-        let random = THREE.MathUtils.randFloat(0, 0.25);
+        var random = THREE.MathUtils.randFloat(0, 0.25);
 
+        var pixel = ((i*32)+j);
         //console.log("pixel: "+((i*32)+j));
         //console.log((100/1024)*(((i*32)+j)+1)+"%");
 
         console.log(((i*96)+i*3) + (3*j+2));
 
-        vertexArray[((i*96)+i*3) + (3*j+2)] = 0.1;
+        vertexArray[((i*96)+i*3) + (3*j+2)] = newArray[pixel];
 
         lightMap.geometry.getAttribute("position").needsUpdate = true;
         j++;
     }, 5);
+};
+
+var setRandom = function() {
+    vertexArray = lightMap.geometry.getAttribute("position").array;
+    for (let i = 0; i < (vertexArray.length/3); i++) {
+        var random = THREE.MathUtils.randFloat(0, 0.25);
+        vertexArray[3 * i + 2] += random;
+        //vertexArray[3 * i + 5] += random;
+        //vertexArray[3 * i + 8] += random;
+    }
+    lightMap.geometry.getAttribute("position").needsUpdate = true;
 };
 
 var restart = function() {
