@@ -323,17 +323,16 @@ var set = function() {
         vertexArray = lightMap.geometry.getAttribute("position").array;
         let random = THREE.MathUtils.randFloat(0, 0.25);
 
-        console.log("pixel: "+(i*32)*j);
+        //console.log("pixel: "+((i*32)+j));
+        //console.log((100/1024)*(((i*32)+j)+1)+"%");
 
-        vertexArray[((i*32)+i)+3 * j + 2] = 0.1;
-        //vertexArray[(i*32)+3 * j + 5] = 0.1;
+        console.log(((i*32)+i) + (3*j+2));
 
-        //vertexArray[((i+1)*32)+3 * j + 2] = newArray[i];
-        //vertexArray[((i+1)*32)+3 * j + 5] = newArray[i];
+        vertexArray[((i*32)+i) + (3*j+2)] = 0.1;
 
         lightMap.geometry.getAttribute("position").needsUpdate = true;
         j++;
-    }, 50);
+    }, 5);
 };
 
 var restart = function() {
