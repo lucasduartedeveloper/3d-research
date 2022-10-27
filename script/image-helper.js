@@ -47,16 +47,17 @@ var cropSquare = function(url, callback) {
            width *= max_size / height;
            height = max_size;
        }
-       //offsetX = ((width-max_size)/2)*-1;
+       offsetX = ((width-max_size)/2)*-1;
+       //console.log(offsetX, width, height);
    } else {
        if (width > max_size) {
            height *= max_size / width;
            width = max_size;
        }
-       //offsetY = ((height-max_size)/2)*-1;
+       offsetY = ((height-max_size)/2)*-1;
    }
-   canvas.width = width;
-   canvas.height = height;
+   //canvas.width = width;
+   //canvas.height = height;
    canvas.getContext('2d').drawImage(
        image, offsetX, offsetY, width, height);
        var dataUrl = canvas.toDataURL('image/jpeg');
