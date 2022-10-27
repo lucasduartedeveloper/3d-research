@@ -258,7 +258,8 @@ $(document).ready(function() {
     info.style.position = "fixed";
     info.style.color = "#ccc";
     info.innerText = "close";
-    info.style.left = sw-110+"px";
+    info.style.left = sw-120+"px";
+    info.style.paddingLeft = "5px";
     info.style.top = sw-48+"px";
     info.style.width = "100px";
     info.style.height = "18px";
