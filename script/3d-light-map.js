@@ -157,7 +157,7 @@ $(document).ready(function() {
     btnToggleControlLight.style.position = "fixed";
     btnToggleControlLight.innerText = "*";
     btnToggleControlLight.style.bottom = 215+"px";
-    btnToggleControlLight.style.left = sw/2-80+"px";
+    btnToggleControlLight.style.left = sw/2+30+"px";
     btnToggleControlLight.style.width = "50px";
     btnToggleControlLight.style.height = "50px";
     btnToggleControlLight.style.border = "1px solid #aaffaa";
@@ -166,13 +166,12 @@ $(document).ready(function() {
     $(btnToggleControlLight).on("click", function() {
         controlLight = !controlLight;
     });
-
     
     btnLeft = document.createElement("button");
     btnLeft.style.position = "fixed";
     btnLeft.innerText = "<";
     btnLeft.style.bottom = 160+"px";
-    btnLeft.style.left = sw/2+30+"px";
+    btnLeft.style.left = sw/2-80+"px";
     btnLeft.style.width = "50px";
     btnLeft.style.height = "50px";
     btnLeft.style.border = "1px solid #aaffaa";
