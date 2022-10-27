@@ -302,7 +302,7 @@ var createLightMap = function(url, callback) {
             green = data[i + 1];
             // blue
             blue = data[i + 2];
-            console.log(red+","+green+","+blue);
+            //console.log(red+","+green+","+blue);
             var sum = redFactor + greenFactor + blueFactor;
             //console.log(sum);
             var diff = 
@@ -334,9 +334,12 @@ var set = function() {
         //console.log("pixel: "+((i*32)+j));
         //console.log((100/1024)*(((i*32)+j)+1)+"%");
 
-        console.log(((i*96)+i*3) + (3*j+2));
+        //console.log(((i*96)+i*3) + (3*j+2));
 
         vertexArray[((i*96)+i*3) + (3*j+2)] = newArray[pixel];
+        vertexArray[((i*96)+i*3) + (3*j+5)] = newArray[pixel];
+        vertexArray[(((i+1)*96)+(i+1)*3) + (3*j+2)] = newArray[pixel];
+        vertexArray[(((i+1)*96)+(i+1)*3) + (3*j+5)] = newArray[pixel];
 
         lightMap.geometry.getAttribute("position").needsUpdate = true;
         j++;
