@@ -144,14 +144,14 @@ $(document).ready(function() {
                 restart();
                 break;
             case "textured":
-                cropSquare("img/test-0.png", function(dataUrl) {
+                cropSquare("img/banana.png", function(dataUrl) {
                     lightMap.loadTexture(dataUrl);
                     lightMap.material.wireframe = false;
                     createLightMap(dataUrl);
                 });
                 break;
             case "wireframe":
-                cropSquare("img/test-0.png", function(dataUrl) {
+                cropSquare("img/banana.png", function(dataUrl) {
                     lightMap.loadTexture(dataUrl);
                     lightMap.material.wireframe = true;
                     createLightMap(dataUrl);
