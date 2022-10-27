@@ -254,6 +254,20 @@ $(document).ready(function() {
         //ws.send("BOOK-ORDER|"+playerId+"|3D|"+scene.rotation.y);
     });
 
+    info = document.createElement("span");
+    info.style.position = "fixed";
+    info.style.color = "#ccc";
+    info.innerText = "close";
+    info.style.left = sw-120+"px";
+    info.style.top = sw-48+"px";
+    info.style.width = "100px";
+    info.style.height = "18px";
+    info.style.textAlign = "right";
+    info.style.fontSize = "18px";
+    info.style.lineHeight = "18px";
+    info.style.zIndex = "1000";
+    document.body.appendChild(info);
+
     Ammo().then(setup);
 });
 
