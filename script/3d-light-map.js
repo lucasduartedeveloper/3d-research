@@ -326,9 +326,9 @@ var set = function() {
         //console.log("pixel: "+((i*32)+j));
         //console.log((100/1024)*(((i*32)+j)+1)+"%");
 
-        console.log(((i*32)+i) + (3*j+2));
+        console.log(((i*96)+i*3) + (3*j+2));
 
-        vertexArray[((i*32)+i) + (3*j+2)] = 0.1;
+        vertexArray[((i*96)+i*3) + (3*j+2)] = 0.1;
 
         lightMap.geometry.getAttribute("position").needsUpdate = true;
         j++;
