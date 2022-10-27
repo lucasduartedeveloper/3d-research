@@ -15,7 +15,7 @@ $.ajax({
         "started_at; order=desc,max=1;");
     },
     dataType: "json",
-    url: "https://api.heroku.com/apps/phone-phone/builds"
+    url: "https://api.heroku.com/apps/open-3d-research/builds"
 })
 .done(function(data) {
     //Heroku release id
