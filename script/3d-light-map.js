@@ -117,7 +117,6 @@ $(document).ready(function() {
     //btnLeft.style.borderRadius = "10%";
     document.body.appendChild(btnToggleTexture);
     $(btnToggleTexture).on("click", function() {
-        if (interval) clearInterval(interval);
         lightMap.modeNo += 1;
         lightMap.modeNo = lightMap.modeNo > 3 ?
         0 : lightMap.modeNo;
@@ -386,6 +385,7 @@ var createLightMap = function(url, callback) {
 
 var interval = false;
 var set = function() {
+    if (interval) clearInterval(interval);
     var i = 0;
     var j = 0;
     interval = setInterval(function() {
