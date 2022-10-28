@@ -167,6 +167,36 @@ $(document).ready(function() {
         numPixels /= 2;
         renderPlane();
     });
+
+    btnPush = document.createElement("button");
+    btnPush.style.position = "fixed";
+    btnPush.innerText = "Z+";
+    btnPush.style.bottom = 105+"px";
+    btnPush.style.left = sw/2-80+"px";
+    btnPush.style.width = "50px";
+    btnPush.style.height = "50px";
+    btnPush.style.border = "1px solid #aaffaa";
+    document.body.appendChild(btnPush);
+    $(btnPush).on("click", function() {
+        light.position.z += 5/numPixels;
+        lightPoint.position.z += 5/numPixels;
+        renderPlane();
+    }); 
+
+    btnPull = document.createElement("button");
+    btnPull.style.position = "fixed";
+    btnPull.innerText = "Z-";
+    btnPull.style.bottom = 105+"px";
+    btnPull.style.left = sw/2-140+"px";
+    btnPull.style.width = "50px";
+    btnPull.style.height = "50px";
+    btnPull.style.border = "1px solid #aaffaa";
+    document.body.appendChild(btnPull);
+    $(btnPull).on("click", function() {
+        light.position.z -= 5/numPixels;
+        lightPoint.position.z -= 5/numPixels;
+        renderPlane();
+    });
     
     btnLeft = document.createElement("button");
     btnLeft.style.position = "fixed";
