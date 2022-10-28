@@ -144,7 +144,7 @@ $(document).ready(function() {
     btnMultiply.style.position = "fixed";
     btnMultiply.innerText = "x";
     btnMultiply.style.bottom = 215+"px";
-    btnMultiply.style.left = sw/2-140+"px";
+    btnMultiply.style.left = sw/2-135+"px";
     btnMultiply.style.width = "50px";
     btnMultiply.style.height = "50px";
     btnMultiply.style.border = "1px solid #aaffaa";
@@ -158,7 +158,7 @@ $(document).ready(function() {
     btnDivide.style.position = "fixed";
     btnDivide.innerText = "%";
     btnDivide.style.bottom = 160+"px";
-    btnDivide.style.left = sw/2-140+"px";
+    btnDivide.style.left = sw/2-135+"px";
     btnDivide.style.width = "50px";
     btnDivide.style.height = "50px";
     btnDivide.style.border = "1px solid #aaffaa";
@@ -170,7 +170,7 @@ $(document).ready(function() {
 
     btnPush = document.createElement("button");
     btnPush.style.position = "fixed";
-    btnPush.innerText = "Z+";
+    btnPush.innerText = "Y+";
     btnPush.style.bottom = 105+"px";
     btnPush.style.left = sw/2-80+"px";
     btnPush.style.width = "50px";
@@ -178,23 +178,23 @@ $(document).ready(function() {
     btnPush.style.border = "1px solid #aaffaa";
     document.body.appendChild(btnPush);
     $(btnPush).on("click", function() {
-        light.position.z += 5/numPixels;
-        lightPoint.position.z += 5/numPixels;
+        light.position.y += 5/numPixels;
+        lightPoint.position.y += 5/numPixels;
         renderPlane();
     }); 
 
     btnPull = document.createElement("button");
     btnPull.style.position = "fixed";
-    btnPull.innerText = "Z-";
+    btnPull.innerText = "Y-";
     btnPull.style.bottom = 105+"px";
-    btnPull.style.left = sw/2-140+"px";
+    btnPull.style.left = sw/2-135+"px";
     btnPull.style.width = "50px";
     btnPull.style.height = "50px";
     btnPull.style.border = "1px solid #aaffaa";
     document.body.appendChild(btnPull);
     $(btnPull).on("click", function() {
-        light.position.z -= 5/numPixels;
-        lightPoint.position.z -= 5/numPixels;
+        light.position.y -= 5/numPixels;
+        lightPoint.position.y -= 5/numPixels;
         renderPlane();
     });
     
