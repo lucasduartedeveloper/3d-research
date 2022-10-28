@@ -458,7 +458,7 @@ var renderPlane = function() {
             cropSquare("img/mario.jpeg", function(dataUrl) {
                 lightMap.loadTexture(dataUrl);
                 lightMap.material.wireframe = false;
-                //createLightMap(dataUrl);
+                createLightMap(dataUrl);
             });
             break;
     }
