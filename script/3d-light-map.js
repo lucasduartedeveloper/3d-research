@@ -138,27 +138,6 @@ $(document).ready(function() {
     $(btnToggleControlLight).on("click", function() {
         controlLight = !controlLight;
     });
-    
-    btnLeft = document.createElement("button");
-    btnLeft.style.position = "fixed";
-    btnLeft.innerText = "<";
-    btnLeft.style.bottom = 160+"px";
-    btnLeft.style.left = sw/2-80+"px";
-    btnLeft.style.width = "50px";
-    btnLeft.style.height = "50px";
-    btnLeft.style.border = "1px solid #aaffaa";
-    //btnLeft.style.borderRadius = "10%";
-    document.body.appendChild(btnLeft);
-    $(btnLeft).on("click", function() {
-        if (controlLight) {
-            light.position.x -= 0.1;
-            lightPoint.position.x -= 0.1;
-        }
-        else {
-            scene.rotateY(-(Math.PI/2)/5);
-        }
-        //ws.send("BOOK-ORDER|"+playerId+"|3D|"+scene.rotation.y);
-    });
 
     numPixels = 32;
     btnMultiply = document.createElement("button");
@@ -188,6 +167,28 @@ $(document).ready(function() {
         numPixels /= 2;
         renderPlane();
     });
+    
+    btnLeft = document.createElement("button");
+    btnLeft.style.position = "fixed";
+    btnLeft.innerText = "<";
+    btnLeft.style.bottom = 160+"px";
+    btnLeft.style.left = sw/2-80+"px";
+    btnLeft.style.width = "50px";
+    btnLeft.style.height = "50px";
+    btnLeft.style.border = "1px solid #aaffaa";
+    //btnLeft.style.borderRadius = "10%";
+    document.body.appendChild(btnLeft);
+    $(btnLeft).on("click", function() {
+        if (controlLight) {
+            light.position.x -= 0.1;
+            lightPoint.position.x -= 0.1;
+            renderPlane();
+        }
+        else {
+            scene.rotateY(-(Math.PI/2)/5);
+        }
+        //ws.send("BOOK-ORDER|"+playerId+"|3D|"+scene.rotation.y);
+    });
 
     btnUp = document.createElement("button");
     btnUp.style.position = "fixed";
@@ -203,6 +204,7 @@ $(document).ready(function() {
         if (controlLight) {
             light.position.z -= 0.1;
             lightPoint.position.z -= 0.1;
+            renderPlane();
         }
         else {
             scene.rotateX(-(Math.PI/2)/5);
@@ -224,6 +226,7 @@ $(document).ready(function() {
         if (controlLight) {
             light.position.z += 0.1;
             lightPoint.position.z += 0.1;
+            renderPlane();
         }
         else {
             scene.rotateX((Math.PI/2)/5);
@@ -248,6 +251,7 @@ $(document).ready(function() {
         if (controlLight) {
             light.position.x += 0.1;
             lightPoint.position.x += 0.1;
+            renderPlane();
         }
         else {
             scene.rotateY((Math.PI/2)/5);
