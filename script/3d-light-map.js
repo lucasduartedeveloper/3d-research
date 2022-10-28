@@ -122,34 +122,7 @@ $(document).ready(function() {
         lightMap.modeNo = lightMap.modeNo > 3 ?
         0 : lightMap.modeNo;
         lightMap.mode = lightMap.modes[lightMap.modeNo];
-        switch (lightMap.mode) {
-            case "blank":
-                lightMap.removeTexture();
-                lightMap.material.wireframe = true;
-                restart();
-                break;
-            case "textured":
-                cropSquare("img/mario.jpeg", function(dataUrl) {
-                    lightMap.loadTexture(dataUrl);
-                    lightMap.material.wireframe = false;
-                    restart();
-                });
-                break;
-            case "wireframe":
-                cropSquare("img/mario.jpeg", function(dataUrl) {
-                    lightMap.loadTexture(dataUrl);
-                    lightMap.material.wireframe = true;
-                    createLightMap(dataUrl);
-                });
-                break;
-            case "textured-volume":
-                cropSquare("img/mario.jpeg", function(dataUrl) {
-                    lightMap.loadTexture(dataUrl);
-                    lightMap.material.wireframe = false;
-                    //createLightMap(dataUrl);
-                });
-                break;
-        }
+        render();
     });
 
     controlLight = false;
@@ -200,6 +173,7 @@ $(document).ready(function() {
     document.body.appendChild(btnMultiply);
     $(btnMultiply).on("click", function() {
         numPixels *= 2;
+        render();
     }); 
 
     btnDivide = document.createElement("button");
@@ -213,6 +187,7 @@ $(document).ready(function() {
     document.body.appendChild(btnDivide);
     $(btnDivide).on("click", function() {
         numPixels /= 2;
+        render();
     });
 
     btnUp = document.createElement("button");
@@ -404,8 +379,6 @@ var createLightMap = function(url, callback) {
             //console.log(diff);
             newArray.push(diff);
         }
-
-        THREE.createPlane4();
         set();
     };
     img.src = url;
@@ -457,6 +430,38 @@ var restart = function() {
     }
     lightMap.geometry.getAttribute("position").needsUpdate = true;
 }
+
+var render = function() {
+    THREE.createPlane4();
+    switch (lightMap.mode) {
+        case "blank":
+            lightMap.removeTexture();
+            lightMap.material.wireframe = true;
+            restart();
+            break;
+        case "textured":
+            cropSquare("img/mario.jpeg", function(dataUrl) {
+                lightMap.loadTexture(dataUrl);
+                lightMap.material.wireframe = false;
+                restart();
+            });
+            break;
+        case "wireframe":
+            cropSquare("img/mario.jpeg", function(dataUrl) {
+                lightMap.loadTexture(dataUrl);
+                lightMap.material.wireframe = true;
+                createLightMap(dataUrl);
+            });
+            break;
+        case "textured-volume":
+            cropSquare("img/mario.jpeg", function(dataUrl) {
+                lightMap.loadTexture(dataUrl);
+                lightMap.material.wireframe = false;
+                //createLightMap(dataUrl);
+            });
+            break;
+    }
+};
 
 THREE.createPlane2 = function() { //vertices, faces) {
     var vertices = new Array();
