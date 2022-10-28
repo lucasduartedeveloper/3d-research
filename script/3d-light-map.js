@@ -422,6 +422,7 @@ var setRandom = function() {
 };
 
 var restart = function() {
+    if (interval) clearInterval(interval);
     var path = 0;
     vertexArray = lightMap.geometry.getAttribute("position").array;
     for (let i = 0; i < vertexArray.length/3; i++) {
