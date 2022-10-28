@@ -204,7 +204,7 @@ $(document).ready(function() {
             lightPoint.position.z -= 0.1;
         }
         else {
-            scene.rotateX((Math.PI/2)/5);
+            scene.rotateX(-(Math.PI/2)/5);
         }
         //ws.send("BOOK-ORDER|"+playerId+"|3D|"+scene.rotation.y);
     }); 
@@ -225,7 +225,7 @@ $(document).ready(function() {
             lightPoint.position.z += 0.1;
         }
         else {
-            scene.rotateX(-(Math.PI/2)/5);
+            scene.rotateX((Math.PI/2)/5);
         }
         //ws.send("BOOK-ORDER|"+playerId+"|3D|"+scene.rotation.y);
     });
