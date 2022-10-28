@@ -122,7 +122,7 @@ $(document).ready(function() {
         lightMap.modeNo = lightMap.modeNo > 3 ?
         0 : lightMap.modeNo;
         lightMap.mode = lightMap.modes[lightMap.modeNo];
-        render();
+        renderPlane();
     });
 
     controlLight = false;
@@ -173,7 +173,7 @@ $(document).ready(function() {
     document.body.appendChild(btnMultiply);
     $(btnMultiply).on("click", function() {
         numPixels *= 2;
-        render();
+        renderPlane();
     }); 
 
     btnDivide = document.createElement("button");
@@ -187,7 +187,7 @@ $(document).ready(function() {
     document.body.appendChild(btnDivide);
     $(btnDivide).on("click", function() {
         numPixels /= 2;
-        render();
+        renderPlane();
     });
 
     btnUp = document.createElement("button");
@@ -431,8 +431,9 @@ var restart = function() {
     lightMap.geometry.getAttribute("position").needsUpdate = true;
 }
 
-var render = function() {
-    THREE.createPlane4();
+var renderPlane = function() {
+    lightMap.geometry = 
+    new THREE.PlaneGeometry(5, 5, numPixels, numPixels);
     switch (lightMap.mode) {
         case "blank":
             lightMap.removeTexture();
@@ -495,7 +496,6 @@ THREE.createPlane2 = function() { //vertices, faces) {
 };
 
 THREE.createPlane4 = function() { //vertices, faces) {
-    if (typeof lightMap !== "undefined") scene.remove(lightMap);
     var planeGeometry = 
     new THREE.PlaneGeometry(5, 5, numPixels, numPixels);
     var planeMaterial = new THREE.MeshBasicMaterial({
