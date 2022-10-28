@@ -188,6 +188,33 @@ $(document).ready(function() {
         //ws.send("BOOK-ORDER|"+playerId+"|3D|"+scene.rotation.y);
     });
 
+    numPixels = 32;
+    btnMultiply = document.createElement("button");
+    btnMultiply.style.position = "fixed";
+    btnMultiply.innerText = "x";
+    btnMultiply.style.bottom = 215+"px";
+    btnMultiply.style.left = sw/2-140+"px";
+    btnMultiply.style.width = "50px";
+    btnMultiply.style.height = "50px";
+    btnMultiply.style.border = "1px solid #aaffaa";
+    document.body.appendChild(btnMultiply);
+    $(btnMultiply).on("click", function() {
+        numPixels *= 2;
+    }); 
+
+    btnDivide = document.createElement("button");
+    btnDivide.style.position = "fixed";
+    btnDivide.innerText = "%";
+    btnDivide.style.bottom = 160+"px";
+    btnDivide.style.left = sw/2-140+"px";
+    btnDivide.style.width = "50px";
+    btnDivide.style.height = "50px";
+    btnDivide.style.border = "1px solid #aaffaa";
+    document.body.appendChild(btnDivide);
+    $(btnDivide).on("click", function() {
+        numPixels /= 2;
+    });
+
     btnUp = document.createElement("button");
     btnUp.style.position = "fixed";
     btnUp.innerText = "^";
@@ -321,8 +348,8 @@ var run = function() {
 
 var createLightMap = function(url, callback) {
     var canvas = document.createElement("canvas");
-    canvas.width = 32;
-    canvas.height = 32;
+    canvas.width = numPixels;
+    canvas.height = numPixels;
     var ctx = canvas.getContext("2d");
 
     canvas.style.position = "fixed";
@@ -343,7 +370,8 @@ var createLightMap = function(url, callback) {
         this.ctx.imageSmoothingEnabled = true;
         this.ctx.drawImage(this, x, y);
 
-        var imgData = this.ctx.getImageData(0, 0, 32, 32);
+        var imgData = 
+        this.ctx.getImageData(0, 0, numPixels, numPixels);
         var data = imgData.data;
 
         var red = 0;
@@ -387,21 +415,21 @@ var set = function() {
     var i = 0;
     var j = 0;
     interval = setInterval(function() {
-        if (j >= 32) { j = 0; i++; };
-        if (i >= 32) { i = 0; clearInterval(interval); return; };
+        if (j >= numPixels) { j = 0; i++; };
+        if (i >= numPixels) { i = 0; clearInterval(interval); return; };
         vertexArray = lightMap.geometry.getAttribute("position").array;
         var random = THREE.MathUtils.randFloat(0, 0.25);
 
-        var pixel = ((i*32)+j);
+        var pixel = ((i*numPixels)+j);
         //console.log("pixel: "+((i*32)+j));
         //console.log((100/1024)*(((i*32)+j)+1)+"%");
 
         //console.log(((i*96)+i*3) + (3*j+2));
 
-        vertexArray[((i*96)+i*3) + (3*j+2)] = newArray[pixel];
-        vertexArray[((i*96)+i*3) + (3*j+5)] = newArray[pixel];
-        vertexArray[(((i+1)*96)+(i+1)*3) + (3*j+2)] = newArray[pixel];
-        vertexArray[(((i+1)*96)+(i+1)*3) + (3*j+5)] = newArray[pixel];
+        vertexArray[((i*(numPixels*3))+i*3) + (3*j+2)] = newArray[pixel];
+        vertexArray[((i*(numPixels*3))+i*3) + (3*j+5)] = newArray[pixel];
+        vertexArray[(((i+1)*(numPixels*3))+(i+1)*3) + (3*j+2)] = newArray[pixel];
+        vertexArray[(((i+1)*(numPixels*3))+(i+1)*3) + (3*j+5)] = newArray[pixel];
 
         lightMap.geometry.getAttribute("position").needsUpdate = true;
         j++;
@@ -461,7 +489,8 @@ THREE.createPlane2 = function() { //vertices, faces) {
 };
 
 THREE.createPlane4 = function() { //vertices, faces) {
-    var planeGeometry = new THREE.PlaneGeometry(5, 5, 32, 32);
+    var planeGeometry = 
+    new THREE.PlaneGeometry(5, 5, numPixels, numPixels);
     var planeMaterial = new THREE.MeshBasicMaterial({
         color: 0xaaaaaa, wireframe: true
     });

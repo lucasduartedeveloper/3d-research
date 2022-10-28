@@ -33,10 +33,10 @@ var cropSquare = function(url, callback) {
 
     // Resize the image
     var canvas = document.createElement('canvas');
-    canvas.width = 32;
-    canvas.height = 32;
+    canvas.width = numPixels;
+    canvas.height = numPixels;
 
-    max_size = 32,// TODO : pull max size from a site config
+    max_size = numPixels,// TODO : pull max size from a site config
     width = image.width,
     height = image.height;
     offsetX = 0;
