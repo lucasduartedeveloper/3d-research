@@ -80,7 +80,7 @@ $(document).ready(function() {
         lightParams.decay
     );
 
-    light.position.set(2.5, 2, 0);
+    light.position.set(2.45, 2, 0);
     light.castShadow = true;
     scene.add(light);
     
@@ -180,8 +180,8 @@ $(document).ready(function() {
     document.body.appendChild(btnLeft);
     $(btnLeft).on("click", function() {
         if (controlLight) {
-            light.position.x -= 0.1;
-            lightPoint.position.x -= 0.1;
+            light.position.x -= 5/numPixels;
+            lightPoint.position.x -= 5/numPixels;
             renderPlane();
         }
         else {
@@ -202,8 +202,8 @@ $(document).ready(function() {
     document.body.appendChild(btnUp);
     $(btnUp).on("click", function() {
         if (controlLight) {
-            light.position.z -= 0.1;
-            lightPoint.position.z -= 0.1;
+            light.position.z -= 5/numPixels;
+            lightPoint.position.z -= 5/numPixels;
             renderPlane();
         }
         else {
@@ -224,8 +224,8 @@ $(document).ready(function() {
     document.body.appendChild(btnDown);
     $(btnDown).on("click", function() {
         if (controlLight) {
-            light.position.z += 0.1;
-            lightPoint.position.z += 0.1;
+            light.position.z += 5/numPixels;
+            lightPoint.position.z += 5/numPixels;
             renderPlane();
         }
         else {
@@ -249,8 +249,8 @@ $(document).ready(function() {
     document.body.appendChild(btnRight);
     $(btnRight).on("click", function() {
         if (controlLight) {
-            light.position.x += 0.1;
-            lightPoint.position.x += 0.1;
+            light.position.x += 5/numPixels;
+            lightPoint.position.x += 5/numPixels;
             renderPlane();
         }
         else {
