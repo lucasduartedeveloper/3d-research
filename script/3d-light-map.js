@@ -490,7 +490,7 @@ THREE.createPlane2 = function() { //vertices, faces) {
 };
 
 THREE.createPlane4 = function() { //vertices, faces) {
-    if (lightMap) scene.remove(lightMap);
+    if (typeof lightMap !== "undefined") scene.remove(lightMap);
     var planeGeometry = 
     new THREE.PlaneGeometry(5, 5, numPixels, numPixels);
     var planeMaterial = new THREE.MeshBasicMaterial({
