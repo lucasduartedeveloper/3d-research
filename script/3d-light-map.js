@@ -422,6 +422,7 @@ var set = function() {
     if (interval) clearInterval(interval);
     var i = 0;
     var j = 0;
+    var w = numPixels / 5;
     interval = setInterval(function() {
         if (j >= numPixels) { j = 0; i++; };
         if (i >= numPixels) { i = 0; clearInterval(interval); return; };
@@ -429,10 +430,11 @@ var set = function() {
         var random = THREE.MathUtils.randFloat(0, 0.25);
 
         var pixel = ((i*numPixels)+j);
-        //console.log("pixel: "+((i*32)+j));
-        //console.log((100/1024)*(((i*32)+j)+1)+"%");
 
-        //console.log(((i*96)+i*3) + (3*j+2));
+        var x = vertexArray[((i*(numPixels*3))+i*3) + (3*j)] = newArray[pixel] + (w/2);
+        var y = vertexArray[((i*(numPixels*3))+i*3) + (3*j+1)] = newArray[pixel] + (w/2);
+        var z = vertexArray[((i*(numPixels*3))+i*3) + (3*j+2)] = newArray[pixel] + (w/2);
+        var dist = { x: 0, y: 0, z: 0 };
 
         vertexArray[((i*(numPixels*3))+i*3) + (3*j+2)] = newArray[pixel];
         vertexArray[((i*(numPixels*3))+i*3) + (3*j+5)] = newArray[pixel];
