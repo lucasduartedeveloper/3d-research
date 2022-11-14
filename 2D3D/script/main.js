@@ -172,7 +172,7 @@ $(document).ready(function() {
         if (msg[0] == "2D3D" &&
             msg[1] != playerId) {
             console.log("received");
-            mapFromString(msg[1]);
+            mapFromString(msg[3]);
         }
         console.log("received");
         saveMap();
