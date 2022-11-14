@@ -69,6 +69,7 @@ var drawItems = function() {
                      this.line+"|"+
                      this.column+"|"+
                      this.touchNo);
+                 touchNo[(this.line+1)*this.column] = this.touchNo;
              }
              box.appendChild(item);
              items.push(item);
