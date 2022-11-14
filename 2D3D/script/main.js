@@ -15,7 +15,7 @@ var marginTop,
     numSlotsVertical;
 
 if (portrait) {
-    numSlotsHorizontal = 3;
+    numSlotsHorizontal = 2;
     slotWidth = sw/numSlotsHorizontal;
     marginLeft = 0
     marginTop = (sh % slotWidth)/2;
