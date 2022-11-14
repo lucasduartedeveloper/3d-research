@@ -14,19 +14,21 @@ var marginTop,
     numSlotsHorizontal, 
     numSlotsVertical;
 
-if (portrait) {
-    numSlotsHorizontal = 2;
-    slotWidth = sw/numSlotsHorizontal;
-    marginLeft = 0
-    marginTop = (sh % slotWidth)/2;
-    numSlotsVertical = (sh - (marginTop*2))/slotWidth;
-}
-else {
-    numSlotsVertical = 20;
-    slotWidth = sh/numSlotsHorizontal;
-    marginTop = 0
-    marginLeft = (sw % slotWidth)/2;
-    numSlotsHorizontal = (sw - (marginLeft*2))/slotWidth;
+var calculateSize = function(slots) {
+    if (portrait) {
+        numSlotsHorizontal = slots;
+        slotWidth = sw/numSlotsHorizontal;
+        marginLeft = 0
+        marginTop = (sh % slotWidth)/2;
+        numSlotsVertical = (sh - (marginTop*2))/slotWidth;
+    }
+    else {
+        numSlotsVertical = 20;
+        slotWidth = sh/numSlotsHorizontal;
+        marginTop = 0
+        marginLeft = (sw % slotWidth)/2;
+        numSlotsHorizontal = (sw - (marginLeft*2))/slotWidth;
+    }
 }
 
 var box = document.createElement("div");
@@ -131,11 +133,20 @@ var clear = function() {
         console.log(k);
         console.log(list[touchNo[k]]);
         items[k].innerText = list[touchNo[k]];
+        if (typeof list[touchNo[k]] != "undefined") {
+            items[k].style.fontSize = 
+                (slotWidth/(numSlotsHorizontal-1))+"px";
+        }
+        else {
+            items[k].style.fontSize = 
+                (slotWidth/(numSlotsHorizontal+3))+"px";
+        }
     }
     saveMap();
 }
 
 $(document).ready(function() {
+    calculateSize(2);
     drawItems();
     ws.onmessage = function(e) {
         var msg = e.data.split("|");
