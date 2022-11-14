@@ -68,8 +68,8 @@ var drawItems = function() {
              item.onclick = function() {
                   this.touchNo++;
                   this.touchNo = 
-                     this.touchNo <= list.length ?
-                     this.touchNo : 0;
+                      this.touchNo <= list.length ?
+                      this.touchNo : 0;
                   this.innerText = this.touchNo < list.length ?
                   list[this.touchNo] : "null";
                   if (this.touchNo < list.length &&
@@ -89,7 +89,6 @@ var drawItems = function() {
     }
     loadMap();
 };
-
 
 var loadMap = function() {
     loaded = localStorage.getItem("map");
