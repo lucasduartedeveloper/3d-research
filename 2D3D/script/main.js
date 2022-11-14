@@ -73,7 +73,7 @@ var drawItems = function() {
                   this.innerText = this.touchNo < list.length ?
                   list[this.touchNo] : "null";
                   if (this.touchNo < list.length &&
-                      typeof list[touchNo[k]] != "undefined") {
+                      typeof list[this.touchNo] != "undefined") {
                       this.style.fontSize = 
                          (slotWidth/(numSlotsHorizontal-1))+"px";
                   }
