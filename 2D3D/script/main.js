@@ -58,7 +58,7 @@ var drawItems = function() {
              item.style.height = slotWidth+"px";
              item.style.shadow = "inset 2px 2px rgba(0,0,0,0.5)";
              item.style.fontSize = 
-                 (slotWidth/(numSlotsHorizontal+1))+"px";
+                 (slotWidth/(numSlotsHorizontal-1))+"px";
              item.touchNo = 0;
              item.line = k;
              item.column = i;
