@@ -28,12 +28,13 @@ else {
 }
 
 var box = document.createElement("div");
+box.style.id = "box";
 box.style.border = "1px solid #ccc";
 box.style.position = "fixed";
 box.style.left = marginLeft+"px";
 box.style.top = marginTop+"px";
 box.style.width = slotWidth*numSlotsHorizontal;
-box.style.height = slotWidth*numSlotsVerticals;
+box.style.height = slotWidth*numSlotsVertical;
 document.body.appendChild(box);
 
 var add = document.createElement("button");
