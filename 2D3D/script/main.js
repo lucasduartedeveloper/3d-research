@@ -114,7 +114,7 @@ var drawItems = function() {
                   console.log("interval: "+pushInterval);
                   console.log("time: "+(new Date().getTime() - pushTime));
                   console.log("mouseup");
-                  //beepPool.play();
+                  beepPool.play();
                   if (pushInterval && clear) clearInterval(pushInterval);
                   this.touchNo++;
                   this.touchNo = 
