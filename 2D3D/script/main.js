@@ -69,6 +69,7 @@ var drawItems = function() {
              item.line = i;
              item.column = k;
              item.onmousedown = function() {
+                 console.log("mousedown");
                  pushTime = new Date().getTime();
                  pushInterval = setInterval(function() {
                      console.log(this);
@@ -76,9 +77,9 @@ var drawItems = function() {
                          this.onmouseup(false);
                      }
                  }.bind(this), 250);
-                 console.log("mousedown");
              };
              item.onmouseup = function(clear=true) {
+                  console.log("mouseup");
                   if (pushInterval && clear) clearInterval(pushInterval);
                   this.touchNo++;
                   this.touchNo = 
@@ -98,7 +99,6 @@ var drawItems = function() {
                  touchNo[(this.line*numSlotsHorizontal)+
                      this.column] = this.touchNo;
                  sendMap();
-                 console.log("mouseup");
              }
              box.appendChild(item);
              items.push(item);
