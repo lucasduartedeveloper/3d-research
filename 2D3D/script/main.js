@@ -72,10 +72,11 @@ var drawItems = function() {
                  pushTime = new Date().getTime();
                  pushInterval = setInterval(function() {
                      if (new Date().getTime() - pushTime > 2000)
-                        item.onmouseup();
+                        this.onmouseup(false);
                  }, 250);
              };
-             item.onmouseup = function() {
+             item.onmouseup = function(clear=true) {
+                  if (pushInterval) clearInterval(pushInterval);
                   this.touchNo++;
                   this.touchNo = 
                       this.touchNo <= list.length ?
