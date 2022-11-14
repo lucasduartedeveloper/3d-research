@@ -104,6 +104,7 @@ var saveMap = function() {
 var clear = function() {
     for (var k in items) {
         touchNo[k] = 0;
+        items[k].innerText = list[touchNo[k]];
     }
     saveMap();
 }
