@@ -49,3 +49,7 @@ var drawItems = function() {
 var positionItem = function() {
 
 }
+
+$(document).ready(function() {
+
+});
