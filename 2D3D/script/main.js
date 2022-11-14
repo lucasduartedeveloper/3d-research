@@ -70,7 +70,10 @@ var drawItems = function() {
                      this.touchNo : 0;
                   this.innerText = this.touchNo < list.length ?
                   list[this.touchNo] : "null";
-                  
+                  if (this.touchNo == list.length) {
+                     item.style.fontSize = 
+                        (slotWidth/(numSlotsHorizontal+3))+"px";
+                  }
              }
              box.appendChild(item);
              items.push(item);
