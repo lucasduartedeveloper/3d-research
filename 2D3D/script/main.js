@@ -128,7 +128,7 @@ var mapToString = function() {
     var map = "";
     for (var k in items) {
          map += touchNo[k];
-         map += k < items.length ? "," : "";
+         map += k < items.length-1 ? "," : "";
     }
     return map;
 }
@@ -176,7 +176,7 @@ $(document).ready(function() {
         if (msg[0] == "2D3D" &&
             msg[1] != playerId) {
             console.log("received");
-            mapFromString(msg[3]);
+            mapFromString(msg[2]);
         }
         console.log("received");
         saveMap();
