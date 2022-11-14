@@ -55,8 +55,8 @@ var drawItems = function() {
              item.style.shadow = "inset 2px 2px rgba(0,0,0,0.5)";
              item.touchNo = 0;
              item.onclick = function() {
-                  item.innerText = list[item.touchNo];
-                  item.touchNo++;
+                  this.innerText = list[this.touchNo];
+                  this.touchNo++;
              }
              box.appendChild(item);
         }
