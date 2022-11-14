@@ -45,10 +45,10 @@ var drawItems = function() {
              var item = document.createElement("button");
              item.style.border = "1px solid #ccc";
              item.style.position = "absolute";
-             item.style.left = i*slotWidth+"px":
-             item.style.top = k*slotWidth+"px":
-             item.style.width = slotWidth+"px":
-             item.style.height = slotWidth+"px":
+             item.style.left = i*slotWidth+"px";
+             item.style.top = k*slotWidth+"px";
+             item.style.width = slotWidth+"px";
+             item.style.height = slotWidth+"px";
              document.body.appendChild(item);
         }
     }
