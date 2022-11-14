@@ -113,10 +113,10 @@ var loadMap = function() {
     if (loaded) {
         touchNo = mapFromString(loaded);
         for (var k in items) {
-            console.log(touchNo);
+            /*console.log(touchNo);
             console.log(k);
             console.log(touchNo[k]);
-            console.log(list[touchNo[k]]);
+            console.log(list[touchNo[k]]);*/
             items[k].innerText = list[touchNo[k]];
             if (typeof list[touchNo[k]] != "undefined") {
                 items[k].style.fontSize = 
@@ -162,11 +162,11 @@ var saveMap = function() {
 var clear = function() {
     for (var k = 0; k < items.length; k++) {
         touchNo[k] = 0;
-        console.log(typeof touchNo);
+        /*console.log(typeof touchNo);
         console.log(touchNo);
         console.log(k);
         console.log(touchNo[k]);
-        console.log(list[touchNo[k]]);
+        console.log(list[touchNo[k]]);*/
         items[k].innerText = list[touchNo[k]];
         if (typeof list[touchNo[k]] != "undefined") {
             items[k].style.fontSize = 
