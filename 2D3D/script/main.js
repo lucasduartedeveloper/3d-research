@@ -71,8 +71,10 @@ var drawItems = function() {
              item.onmousedown = function() {
                  pushTime = new Date().getTime();
                  pushInterval = setInterval(function() {
-                     if (new Date().getTime() - pushTime > 2000)
-                        this.onmouseup(false);
+                     if (new Date().getTime() - pushTime > 2000) {
+                         console.log(this);
+                         this.onmouseup(false);
+                     }
                  }.bind(this), 250);
              };
              item.onmouseup = function(clear=true) {
