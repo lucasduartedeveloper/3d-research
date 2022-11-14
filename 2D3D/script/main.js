@@ -15,7 +15,7 @@ var marginTop,
     numSlotsVertical;
 
 if (portrait) {
-    numSlotsHorizontal = 10;
+    numSlotsHorizontal = 3;
     slotWidth = sw/10;
     marginLeft = 0
     marginTop = (sh % slotWidth)/2;
@@ -103,7 +103,9 @@ var saveMap = function() {
 
 var clear = function() {
     for (var k in items) {
-        touchNo[k] = 0;
+        touchNo[k] = 5;
+        console.log(k);
+        console.log(list[touchNo[k]]);
         items[k].innerText = list[touchNo[k]];
     }
     saveMap();
