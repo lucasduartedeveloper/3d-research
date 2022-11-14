@@ -50,6 +50,7 @@ var items = [];
 var touchNo = [];
 
 var drawItems = function() {
+    touchNo = [];
     console.log(typeof touchNo);
     for (var i = 0; i < numSlotsVertical; i++) {
         for (var k = 0; k < numSlotsHorizontal;  k++) {
@@ -96,7 +97,7 @@ var drawItems = function() {
 var loadMap = function() {
     loaded = localStorage.getItem("map");
     if (loaded) {
-        touchNo = loaded;
+        touchNo = mapFromString(loaded);
         for (var k in items) {
             items[k].innerText = list[touchNo[k]];
             if (typeof list[touchNo[k]] != "undefined") {
@@ -144,6 +145,7 @@ var saveMap = function() {
 }
 
 var clear = function() {
+    touchNo = [];
     for (var k = 0; k < items.length; k++) {
         touchNo[k] = 0;
         console.log(typeof touchNo);
