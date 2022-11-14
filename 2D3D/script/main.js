@@ -83,6 +83,7 @@ var items = [];
 var touchNo = [];
 var pushTime = new Date().getTime();
 var pushInterval = false;
+var releaseTimeout = false;
 
 var drawItems = function() {
     touchNo = [];
@@ -141,6 +142,10 @@ var drawItems = function() {
                  touchNo[(this.line*numSlotsHorizontal)+
                      this.column] = this.touchNo;
                  sendMap();
+                 if (releaseTimeout) clearTimeout(releaseTimeout);
+                 releaseTimeout = setTimeout(function() {
+                      say(this.innerText);
+                  }, 5000);
              }
              box.appendChild(item);
              items.push(item);
@@ -220,6 +225,26 @@ var clear = function() {
         }
     }
     saveMap();
+}
+
+// Texto para audio
+var speaker = true;
+var speaking = false;
+function say(text) {
+    if (!speaking && speaker) {
+         speaking = true;
+         var msg = new SpeechSynthesisUtterance();
+         msg.lang = "pt-BR";
+         //msg.lang = "en-US";
+         //msg.lang = "ja-JP";
+         //msg.lang = "ko-KR";
+         //msg.lang = "cmn-CN";
+         msg.text = text;
+         msg.onend = function(event) {
+              speaking = false;
+         };
+         window.speechSynthesis.speak(msg);
+    }
 }
 
 $(document).ready(function() {
