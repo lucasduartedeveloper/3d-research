@@ -110,7 +110,6 @@ var loadMap = function() {
 }
 
 var mapFromString = function(str) {
-    //str = localStorage.getItem("map");
     touchNo = str.split(",");
     for (var k in items) {
         items[k].innerText = list[touchNo[k]];
@@ -137,9 +136,6 @@ var sendMap = function() {
 };
 
 var saveMap = function() {
-    for (var k in items) {
-        touchNo[k] = list[items[k].touchNo];
-    }
     localStorage.setItem("map", touchNo);
 }
 
