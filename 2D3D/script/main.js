@@ -80,8 +80,10 @@ var drawItems = function() {
 
 var loadMap = function() {
     touchNo = localStorage.getItem("map");
-    for (var k in items) {
-        items[k].innerText = list(touchNo[k]);
+    if (touchNo) {
+        for (var k in items) {
+            items[k].innerText = list(touchNo[k]);
+        }
     }
 }
 
