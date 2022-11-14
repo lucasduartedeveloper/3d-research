@@ -85,6 +85,11 @@ var pushTime = new Date().getTime();
 var pushInterval = false;
 
 var drawItems = function() {
+    touchNo = [];
+    for (var k in items) {
+        items[k].remove();
+    }
+    items = [];
     for (var i = 0; i < numSlotsVertical; i++) {
         for (var k = 0; k < numSlotsHorizontal;  k++) {
              var item = document.createElement("button");
