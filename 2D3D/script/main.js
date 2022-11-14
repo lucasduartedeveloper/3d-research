@@ -95,6 +95,13 @@ var saveMap = function() {
     localStorage.setItem("map", touchNo);
 }
 
+var clear = function() {
+    for (var k in items) {
+        touchNo[k] = 0;
+    }
+    saveMap();
+}
+
 $(document).ready(function() {
     drawItems();
     ws.onmessage = function(msg) {
