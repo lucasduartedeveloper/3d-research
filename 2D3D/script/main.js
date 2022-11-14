@@ -99,6 +99,10 @@ var loadMap = function() {
     if (loaded) {
         touchNo = loaded;
         for (var k in items) {
+            console.log(touchNo);
+            console.log(k);
+            console.log(touchNo[k]);
+            console.log(list[touchNo[k]]);
             items[k].innerText = list[touchNo[k]];
             if (typeof list[touchNo[k]] != "undefined") {
                 items[k].style.fontSize = 
