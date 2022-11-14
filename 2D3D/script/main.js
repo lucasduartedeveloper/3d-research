@@ -115,7 +115,7 @@ var clear = function() {
 
 $(document).ready(function() {
     drawItems();
-    ws.onmessage = function(msg) {
+    ws.onmessage = function(e) {
         var msg = e.data.split("|");
         //msg = "2D3D|"+playerId+"|"+0+"|"+0+"|"+1;
         console.log(msg);
