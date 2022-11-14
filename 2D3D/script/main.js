@@ -61,8 +61,7 @@ var drawItems = function() {
              item.style.height = slotWidth+"px";
              item.style.shadow = "inset 2px 2px rgba(0,0,0,0.5)";
              item.style.lineHeight = "0px";
-             item.style.fontSize = 
-                 (slotWidth/(numSlotsHorizontal-1))+"px";
+             item.style.fontSize = (slotWidth)+"px";
              item.touchNo = 0;
              item.line = i;
              item.column = k;
@@ -76,11 +75,11 @@ var drawItems = function() {
                   if (this.touchNo < list.length &&
                       typeof list[this.touchNo] != "undefined") {
                       this.style.fontSize = 
-                         (slotWidth/(numSlotsHorizontal-1))+"px";
+                         (slotWidth)+"px";
                   }
                  else {
                      this.style.fontSize = 
-                        (slotWidth/(numSlotsHorizontal+3))+"px";
+                        (slotWidth/3)+"px";
                  }
                  touchNo[(this.line*numSlotsHorizontal)+
                      this.column] = this.touchNo;
@@ -106,11 +105,11 @@ var loadMap = function() {
             items[k].innerText = list[touchNo[k]];
             if (typeof list[touchNo[k]] != "undefined") {
                 items[k].style.fontSize = 
-                (slotWidth/(numSlotsHorizontal-1))+"px";
+                (slotWidth)+"px";
             }
            else {
                 items[k].style.fontSize = 
-                (slotWidth/(numSlotsHorizontal+3))+"px";
+                (slotWidth/3)+"px";
            }
         }
     }
@@ -156,11 +155,11 @@ var clear = function() {
         items[k].innerText = list[touchNo[k]];
         if (typeof list[touchNo[k]] != "undefined") {
             items[k].style.fontSize = 
-                (slotWidth/(numSlotsHorizontal-1))+"px";
+                (slotWidth)+"px";
         }
         else {
             items[k].style.fontSize = 
-                (slotWidth/(numSlotsHorizontal+3))+"px";
+                (slotWidth/3)+"px";
         }
     }
     saveMap();
