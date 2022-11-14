@@ -72,10 +72,15 @@ var drawItems = function() {
                      this.touchNo : 0;
                   this.innerText = this.touchNo < list.length ?
                   list[this.touchNo] : "null";
-                  if (this.touchNo == list.length) {
-                     this.style.fontSize = 
-                        (slotWidth/(numSlotsHorizontal+3))+"px";
+                  if (this.touchNo == list.length && 
+                      typeof list[touchNo[k]] != "undefined") {
+                      items[k].style.fontSize = 
+                         (slotWidth/(numSlotsHorizontal-1))+"px";
                   }
+                 else {
+                     items[k].style.fontSize = 
+                        (slotWidth/(numSlotsHorizontal+3))+"px";
+                 }
              }
              box.appendChild(item);
              items.push(item);
