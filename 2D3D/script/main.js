@@ -79,8 +79,9 @@ var drawItems = function() {
 };
 
 var loadMap = function() {
-    touchNo = localStorage.getItem("map");
-    if (touchNo) {
+    loaded = localStorage.getItem("map");
+    if (loaded) {
+        touchNo = loaded;
         for (var k in items) {
             items[k].innerText = list(touchNo[k]);
         }
