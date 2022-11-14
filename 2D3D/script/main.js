@@ -2,11 +2,43 @@ var sw = window.innerWidth;
 var sh = window.innerHeight;
 var portrait = sh>sw;
 
-var playerId = new Date().getTime();
+class BeepPool {
+    constructor() {
+       this.stored = [];
+       this.playing = [];
+       this.used = 0;
+    }
+    play() {
+       var beep0 = this.stored.length > 0 ? 
+       this.stored.pop() : new Audio("audio/ready-beep.mp3");
+       beep0.onended = function() {
+           for (var k in this.pool.playing) {
+               if (this.timestamp == this.pool.playing[k].timestamp) {
+                   this.pool.stored.push(
+                       this.pool.playing.splice(k, 1)[0]
+                   );
+                   this.pool.used += 1;
+                   info.innerText = "mp3: "+this.pool.used+
+                   (this.pool.playing.length > 0 ?
+                   "/"+this.pool.playing.length : "");
+               }
+           }
+       }
+       this.playing.push(beep0);
+       beep0.timestamp = new Date().getTime();
+       beep0.pool = this;
+       beep0.play();
+       navigator.vibrate(200);
+    }
+    empty() {
+       this.stored = [];
+       this.used = 0;
+    }
+}
+var beepPool = new BeepPool();
 
-var items = [
-    
-];
+var playerId = new Date().getTime();
+var items = [];
 
 var marginTop,
     marginLeft, 
@@ -80,6 +112,7 @@ var drawItems = function() {
              };
              item.onmouseup = function(clear=true) {
                   console.log("mouseup");
+                  //beepPool.play();
                   if (pushInterval && clear) clearInterval(pushInterval);
                   this.touchNo++;
                   this.touchNo = 
