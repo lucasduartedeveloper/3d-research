@@ -33,8 +33,8 @@ box.style.border = "1px solid #ccc";
 box.style.position = "fixed";
 box.style.left = marginLeft+"px";
 box.style.top = marginTop+"px";
-box.style.width = slotWidth*numSlotsHorizontal;
-box.style.height = slotWidth*numSlotsVertical;
+box.style.width = slotWidth*numSlotsHorizontal+"px";
+box.style.height = slotWidth*numSlotsVertical+"px";
 document.body.appendChild(box);
 
 var add = document.createElement("button");
@@ -50,15 +50,15 @@ var drawItems = function() {
              item.style.top = k*slotWidth+"px";
              item.style.width = slotWidth+"px";
              item.style.height = slotWidth+"px";
-             document.body.appendChild(item);
+             box.appendChild(item);
         }
     }
 };
 
-var positionItem = function() {
-
+var positionItems = function() {
+     
 }
 
 $(document).ready(function() {
-
+    drawItems();
 });
