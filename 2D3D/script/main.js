@@ -82,6 +82,8 @@ var drawItems = function() {
                      this.style.fontSize = 
                         (slotWidth/(numSlotsHorizontal+3))+"px";
                  }
+                 touchNo[(this.line*numSlotsHorizontal)+
+                     this.column] = this.touchNo;
              }
              box.appendChild(item);
              items.push(item);
