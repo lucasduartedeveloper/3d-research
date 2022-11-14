@@ -98,11 +98,11 @@ var drawItems = function() {
                  touchNo[(this.line*numSlotsHorizontal)+
                      this.column] = this.touchNo;
                  sendMap();
+                 console.log("mouseup");
              }
              box.appendChild(item);
              items.push(item);
              touchNo.push(item.touchNo);
-             console.log("mouseup");
         }
     }
     loadMap();
