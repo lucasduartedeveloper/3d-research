@@ -27,20 +27,21 @@ else {
     numSlotsHorizontal = (sh - (marginLeft*2))/slotWidth;
 }
 
-var box = document.body.createElement("div");
+var box = document.createElement("div");
 box.style.border = "1px solid #ccc";
 box.style.position = "fixed";
 box.style.left = marginLeft+"px";
-box style.top = marginTop+"px";
+box.style.top = marginTop+"px";
 box.style.width = slotWidth*numSlotsHorizontal;
 box.style.height = slotVertical*numSlotVertical;
+document.body.appendChild(box);
 
-var add = document.body.createElement("button");
+var add = document.createElement("button");
 add.style.position = "fixed";
 
 var drawItems = function() {
     for (var k in items) {
-         var item = document.body.createElement("button");
+         var item = document.createElement("button");
          
     }
 };
