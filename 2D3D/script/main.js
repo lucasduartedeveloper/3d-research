@@ -130,9 +130,6 @@ var mapToString = function() {
 }
 
 var sendMap = function() {
-    for (var k in items) {
-        touchNo[k] = list[items[k].touchNo];
-    }
     ws.send(
         "2D3D|"+
         playerId+"|"+mapToString());
