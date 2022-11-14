@@ -144,7 +144,7 @@ var drawItems = function() {
                  sendMap();
                  if (releaseTimeout) clearTimeout(releaseTimeout);
                  releaseTimeout = setTimeout(function() {
-                      say(this.innerText);
+                      //say(this.innerText);
                   }.bind(this), 5000);
              }
              box.appendChild(item);
