@@ -48,6 +48,8 @@ var list = " 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 var items = [];
 var touchNo = [];
+console.log(typeof touchNo);
+
 var drawItems = function() {
     for (var i = 0; i < numSlotsVertical; i++) {
         for (var k = 0; k < numSlotsHorizontal;  k++) {
