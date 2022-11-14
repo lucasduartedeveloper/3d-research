@@ -167,7 +167,7 @@ var clear = function() {
 }
 
 $(document).ready(function() {
-    calculateSize(5);
+    calculateSize(7);
     drawItems();
     ws.onmessage = function(e) {
         var msg = e.data.split("|");
