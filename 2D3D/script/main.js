@@ -69,15 +69,7 @@ var drawItems = function() {
                      this.touchNo : 0;
                   this.innerText = this.touchNo < list.length ?
                   list[this.touchNo] : "null";
-                  ws.send(
-                     "2D3D|"+
-                     playerId+"|"+
-                     this.line+"|"+
-                     this.column+"|"+
-                     this.touchNo);
-                 touchNo[
-                    (this.line*numSlotsHorizontal)+
-                    this.column] = this.touchNo;
+                  
              }
              box.appendChild(item);
              items.push(item);
@@ -96,6 +88,31 @@ var loadMap = function() {
         }
     }
 }
+
+var mapFromString = function(str) {
+    touchNo = str.split(",");
+    for (var k in items) {
+        items[k].innerText = list[touchNo[k]];
+    }
+}
+
+var mapToString = function() {
+    var map = "";
+    for (var k in items) {
+         map += touchNo[k];
+         map += k < items.length ? "," : "";
+    }
+    return map;
+}
+
+var sendMap = function() {
+    for (var k in items) {
+        touchNo[k] = list[items[k].touchNo];
+    }
+    ws.send(
+        "2D3D|"+
+        playerId+"|"+mapToString());
+};
 
 var saveMap = function() {
     for (var k in items) {
@@ -123,11 +140,7 @@ $(document).ready(function() {
         if (msg[0] == "2D3D" &&
             msg[1] != playerId) {
             console.log("received");
-            var line = parseInt(msg[2]);
-            var column = parseInt(msg[3]);
-            var touchNo = parseInt(msg[4]);
-            items[(line*numSlotsHorizontal)+column]
-               .innerHTML = list[touchNo];
+            mapFromString(msg[1]);
         }
         saveMap();
     };
