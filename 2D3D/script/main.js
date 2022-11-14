@@ -112,6 +112,7 @@ var drawItems = function() {
              };
              item.onmouseup = function(clear=true) {
                   console.log("interval: "+pushInterval);
+                  console.log("time: "+new Date().getTime() - pushTime);
                   console.log("mouseup");
                   //beepPool.play();
                   if (pushInterval && clear) clearInterval(pushInterval);
