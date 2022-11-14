@@ -233,6 +233,7 @@ $(document).ready(function() {
             msg[1] != playerId) {
             console.log("received");
             mapFromString(msg[2]);
+            beepPool.play();
         }
         console.log("received");
         saveMap();
