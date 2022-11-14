@@ -71,11 +71,12 @@ var drawItems = function() {
              item.onmousedown = function() {
                  pushTime = new Date().getTime();
                  pushInterval = setInterval(function() {
+                     console.log(this);
                      if (new Date().getTime() - pushTime > 2000) {
-                         console.log(this);
                          this.onmouseup(false);
                      }
                  }.bind(this), 250);
+                 console.log("mousedown");
              };
              item.onmouseup = function(clear=true) {
                   if (pushInterval && clear) clearInterval(pushInterval);
@@ -101,6 +102,7 @@ var drawItems = function() {
              box.appendChild(item);
              items.push(item);
              touchNo.push(item.touchNo);
+             console.log("mouseup");
         }
     }
     loadMap();
