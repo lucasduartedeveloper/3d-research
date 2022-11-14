@@ -60,8 +60,8 @@ var drawItems = function() {
              item.style.fontSize = 
                  (slotWidth/(numSlotsHorizontal-1))+"px";
              item.touchNo = 0;
-             item.line = k;
-             item.column = i;
+             item.line = i;
+             item.column = k;
              item.onclick = function() {
                   this.touchNo++;
                   this.touchNo = 
