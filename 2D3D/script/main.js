@@ -44,7 +44,8 @@ var calculateSize = function(slots) {
 var add = document.createElement("button");
 add.style.position = "fixed";
 
-var list = " 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var list = 
+" 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ%®$&+-?";
 
 var items = [];
 var touchNo = [];
