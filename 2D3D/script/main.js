@@ -18,9 +18,9 @@ class BeepPool {
                        this.pool.playing.splice(k, 1)[0]
                    );
                    this.pool.used += 1;
-                   info.innerText = "mp3: "+this.pool.used+
+                   /*info.innerText = "mp3: "+this.pool.used+
                    (this.pool.playing.length > 0 ?
-                   "/"+this.pool.playing.length : "");
+                   "/"+this.pool.playing.length : "");*/
                }
            }
        }
