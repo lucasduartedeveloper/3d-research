@@ -61,8 +61,8 @@ var drawItems = function() {
              item.line = i;
              item.column = k;
              item.onclick = function() {
-                  this.innerText = list[this.touchNo];
                   this.touchNo++;
+                  this.innerText = list[this.touchNo];
                   ws.send(
                      "2D3D|"+
                      playerId+"|"+
