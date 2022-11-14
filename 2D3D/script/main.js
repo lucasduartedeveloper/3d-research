@@ -84,6 +84,7 @@ var drawItems = function() {
                  }
                  touchNo[(this.line*numSlotsHorizontal)+
                      this.column] = this.touchNo;
+                 sendMap();
              }
              box.appendChild(item);
              items.push(item);
@@ -135,10 +136,12 @@ var sendMap = function() {
     ws.send(
         "2D3D|"+
         playerId+"|"+mapToString());
+    console.log("sent");
 };
 
 var saveMap = function() {
     localStorage.setItem("map", touchNo);
+    console.log("saved");
 }
 
 var clear = function() {
@@ -174,6 +177,7 @@ $(document).ready(function() {
             console.log("received");
             mapFromString(msg[1]);
         }
+        console.log("received");
         saveMap();
     };
 });
