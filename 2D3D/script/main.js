@@ -62,8 +62,9 @@ var drawItems = function() {
              item.column = k;
              item.onclick = function() {
                   this.touchNo++;
-                  this.touchNo = this.touchNo < list.length-1 ?
-                  this.touchNo : 0;
+                  this.touchNo = 
+                     this.touchNo < list.length ?
+                     this.touchNo : 0;
                   this.innerText = list[this.touchNo];
                   ws.send(
                      "2D3D|"+
