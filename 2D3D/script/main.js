@@ -50,8 +50,6 @@ var items = [];
 var touchNo = [];
 
 var drawItems = function() {
-    touchNo = [];
-    console.log(typeof touchNo);
     for (var i = 0; i < numSlotsVertical; i++) {
         for (var k = 0; k < numSlotsHorizontal;  k++) {
              var item = document.createElement("button");
@@ -88,7 +86,6 @@ var drawItems = function() {
              box.appendChild(item);
              items.push(item);
              touchNo.push(this.touchNo);
-             console.log(typeof touchNo);
         }
     }
     loadMap();
@@ -113,6 +110,7 @@ var loadMap = function() {
 }
 
 var mapFromString = function(str) {
+    //str = localStorage.getItem("map");
     touchNo = str.split(",");
     for (var k in items) {
         items[k].innerText = list[touchNo[k]];
@@ -145,7 +143,6 @@ var saveMap = function() {
 }
 
 var clear = function() {
-    touchNo = [];
     for (var k = 0; k < items.length; k++) {
         touchNo[k] = 0;
         console.log(typeof touchNo);
@@ -168,9 +165,7 @@ var clear = function() {
 
 $(document).ready(function() {
     calculateSize(2);
-    console.log(typeof touchNo);
     drawItems();
-    console.log(typeof touchNo);
     ws.onmessage = function(e) {
         var msg = e.data.split("|");
         //msg = "2D3D|"+playerId+"|"+0+"|"+0+"|"+1;
