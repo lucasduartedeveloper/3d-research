@@ -31,7 +31,7 @@ else {
 
 var box = document.createElement("div");
 box.style.id = "box";
-box.style.border = "2px solid #ccc";
+//box.style.border = "2px solid #ccc";
 box.style.position = "absolute";
 box.style.left = marginLeft+"px";
 box.style.top = marginTop+"px";
