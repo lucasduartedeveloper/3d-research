@@ -90,6 +90,7 @@ var drawItems = function() {
     loadMap();
 };
 
+
 var loadMap = function() {
     loaded = localStorage.getItem("map");
     if (loaded) {
@@ -141,9 +142,12 @@ var saveMap = function() {
 }
 
 var clear = function() {
-    for (var k in items) {
+    for (var k = 0; k < items.length; k++) {
         touchNo[k] = 0;
+        console.log(typeof touchNo);
+        console.log(touchNo);
         console.log(k);
+        console.log(touchNo[k]);
         console.log(list[touchNo[k]]);
         items[k].innerText = list[touchNo[k]];
         if (typeof list[touchNo[k]] != "undefined") {
@@ -161,6 +165,7 @@ var clear = function() {
 $(document).ready(function() {
     calculateSize(2);
     drawItems();
+    console.log(typeof touchNo);
     ws.onmessage = function(e) {
         var msg = e.data.split("|");
         //msg = "2D3D|"+playerId+"|"+0+"|"+0+"|"+1;
