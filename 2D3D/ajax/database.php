@@ -26,7 +26,7 @@ try {
     else if (!empty($_POST["action"]) && 
         $_POST["action"] == "get-account") {
 
-        $sql = "SELECT value FROM param WHERE id=1";
+        $sql = "SELECT value FROM param WHERE id=2";
 
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
@@ -38,7 +38,7 @@ try {
     else if (!empty($_POST["action"]) && 
         $_POST["action"] == "get-config") {
 
-        $sql = "SELECT value FROM param WHERE id=0";
+        $sql = "SELECT value FROM param WHERE id=1";
 
         $stmt = $pdo->prepare($sql);
         $stmt->execute();

@@ -77,7 +77,7 @@ var add = document.createElement("button");
 add.style.position = "fixed";
 
 var list = 
-" 0123456789ABCDEFGHIJKLMNÑOPQRSTUVWXYZ.%®$&+-?";
+" 0123456789ABCÇDEFGHIJKLMNÑOPQRSTUVWXYZ.%®$&+-?";
 
 var items = [];
 var touchNo = [];
