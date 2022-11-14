@@ -115,6 +115,7 @@ var mapFromString = function(str) {
     for (var k in items) {
         items[k].innerText = list[touchNo[k]];
     }
+    return touchNo;
 }
 
 var mapToString = function() {
