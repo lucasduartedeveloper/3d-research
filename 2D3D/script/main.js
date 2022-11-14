@@ -97,7 +97,7 @@ var drawItems = function() {
 var loadMap = function() {
     loaded = localStorage.getItem("map");
     if (loaded) {
-        touchNo = mapFromString(loaded);
+        touchNo = loaded;
         for (var k in items) {
             items[k].innerText = list[touchNo[k]];
             if (typeof list[touchNo[k]] != "undefined") {
