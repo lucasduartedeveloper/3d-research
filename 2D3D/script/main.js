@@ -145,7 +145,7 @@ var drawItems = function() {
                  if (releaseTimeout) clearTimeout(releaseTimeout);
                  releaseTimeout = setTimeout(function() {
                       say(this.innerText);
-                  }, 5000);
+                  }.bind(this), 5000);
              }
              box.appendChild(item);
              items.push(item);
