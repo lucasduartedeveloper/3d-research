@@ -40,6 +40,8 @@ document.body.appendChild(box);
 var add = document.createElement("button");
 add.style.position = "fixed";
 
+var list = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
 var drawItems = function() {
     for (var i = 0; i < numSlotsHorizontal; i++) {
         for (var k = 0; k < numSlotsVertical;  k++) {
@@ -51,6 +53,11 @@ var drawItems = function() {
              item.style.width = slotWidth+"px";
              item.style.height = slotWidth+"px";
              item.style.shadow = "inset 2px 2px rgba(0,0,0,0.5)";
+             item.touchNo = 0;
+             item.onclick = function() {
+                  item.innerText = list[item.touchNo];
+                  item.touchNo++;
+             }
              box.appendChild(item);
         }
     }
