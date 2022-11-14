@@ -10,7 +10,13 @@ try {
         $_POST["action"] == "update-account") {
 
         $value = htmlspecialchars($_POST["value"]);
-        $sql = "UPDATE param SET value='".$value."' WHERE id=1";
+        $sql = "UPDATE 
+            param 
+        SET 
+            value='".$value."',
+            ip_address='".$remote_addr."',
+            forwarded='".$forwarded."' 
+        WHERE id=1";
 
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
