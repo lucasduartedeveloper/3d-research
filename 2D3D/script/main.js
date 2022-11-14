@@ -2,6 +2,8 @@ var sw = window.innerWidth;
 var sh = window.innerHeight;
 var portrait = sh>sw;
 
+var playerId = new Date().getTime();
+
 var items = [
     
 ];
@@ -42,6 +44,8 @@ add.style.position = "fixed";
 
 var list = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+var items = [];
+var touchNo = [];
 var drawItems = function() {
     for (var i = 0; i < numSlotsHorizontal; i++) {
         for (var k = 0; k < numSlotsVertical;  k++) {
@@ -54,19 +58,50 @@ var drawItems = function() {
              item.style.height = slotWidth+"px";
              item.style.shadow = "inset 2px 2px rgba(0,0,0,0.5)";
              item.touchNo = 0;
+             item.line = i;
+             item.column = j;
              item.onclick = function() {
                   this.innerText = list[this.touchNo];
                   this.touchNo++;
+                  ws.send(
+                     "2D3D|"+
+                     playerId+"|"+
+                     this.line+"|"+
+                     this.column+"|"+
+                     this.touchNo);
              }
              box.appendChild(item);
+             items.push(item);
+             touchNo.push(this.touchNo);
         }
     }
+    loadMap();
 };
 
-var positionItems = function() {
-     
+var loadMap = function() {
+    touchNo = localStorage.getItem("map");
+    for (var k in items) {
+        items[k].innerText = list(touchNo[k]);
+    }
+}
+
+var saveMap = function() {
+    for (var k in items) {
+        touchNo[k] = list[items[k].touchNo];
+    }
+    localStorage.setItem("map", touchNo);
 }
 
 $(document).ready(function() {
     drawItems();
+    ws.onmessage = function(msg) {
+        saveMap();
+        if (msg[0] == "2D3D" &&
+            msg[1] != playerId) {
+            var line = parseInt(msg[2]);
+            var column = parseInt(msg[3]);
+            var touchNo = parseInt(msg[4]);
+            items[(line+1)*j].innerHTML = list[touchNo];
+        }
+    };
 });
