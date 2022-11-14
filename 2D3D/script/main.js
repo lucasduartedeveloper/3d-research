@@ -163,6 +163,7 @@ var clear = function() {
 
 $(document).ready(function() {
     calculateSize(2);
+    console.log(typeof touchNo);
     drawItems();
     console.log(typeof touchNo);
     ws.onmessage = function(e) {
