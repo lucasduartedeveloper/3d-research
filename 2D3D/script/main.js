@@ -76,7 +76,7 @@ var drawItems = function() {
                  }, 250);
              };
              item.onmouseup = function(clear=true) {
-                  if (pushInterval) clearInterval(pushInterval);
+                  if (pushInterval && clear) clearInterval(pushInterval);
                   this.touchNo++;
                   this.touchNo = 
                       this.touchNo <= list.length ?
