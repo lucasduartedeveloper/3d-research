@@ -73,7 +73,7 @@ var drawItems = function() {
                      this.column+"|"+
                      this.touchNo);
                  touchNo[
-                    (this.line*numSlotsHorizontal)*
+                    (this.line*numSlotsHorizontal)+
                     this.column] = this.touchNo;
              }
              box.appendChild(item);
@@ -117,7 +117,7 @@ $(document).ready(function() {
             var line = parseInt(msg[2]);
             var column = parseInt(msg[3]);
             var touchNo = parseInt(msg[4]);
-            items[(line*numSlotsHorizontal)*j]
+            items[(line*numSlotsHorizontal)+column]
                .innerHTML = list[touchNo];
         }
     };
