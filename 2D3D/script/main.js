@@ -16,14 +16,14 @@ var marginTop,
 
 if (portrait) {
     numSlotsHorizontal = 3;
-    slotWidth = sw/10;
+    slotWidth = sw/numSlotsHorizontal;
     marginLeft = 0
     marginTop = (sh % slotWidth)/2;
     numSlotsVertical = (sh - (marginTop*2))/slotWidth;
 }
 else {
     numSlotsVertical = 20;
-    slotWidth = sh/20;
+    slotWidth = sh/numSlotsHorizontal;
     marginTop = 0
     marginLeft = (sw % slotWidth)/2;
     numSlotsHorizontal = (sw - (marginLeft*2))/slotWidth;
