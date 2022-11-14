@@ -59,7 +59,7 @@ var drawItems = function() {
              item.style.shadow = "inset 2px 2px rgba(0,0,0,0.5)";
              item.touchNo = 0;
              item.line = i;
-             item.column = j;
+             item.column = k;
              item.onclick = function() {
                   this.innerText = list[this.touchNo];
                   this.touchNo++;
