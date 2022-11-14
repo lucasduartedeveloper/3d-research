@@ -49,6 +49,8 @@ var list =
 
 var items = [];
 var touchNo = [];
+var pushTime = new Date().getTime();
+var pushInterval = false;
 
 var drawItems = function() {
     for (var i = 0; i < numSlotsVertical; i++) {
@@ -66,7 +68,14 @@ var drawItems = function() {
              item.touchNo = 0;
              item.line = i;
              item.column = k;
-             item.onclick = function() {
+             item.onmousedown = function() {
+                 pushTime = new Date().getTime();
+                 pushInterval = setInterval(function() {
+                     if (new Date().getTime() - pushTime > 2000)
+                        item.onmouseup();
+                 }, 250);
+             };
+             item.onmouseup = function() {
                   this.touchNo++;
                   this.touchNo = 
                       this.touchNo <= list.length ?
