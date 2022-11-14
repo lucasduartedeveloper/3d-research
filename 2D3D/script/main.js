@@ -48,9 +48,9 @@ var list = " 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 var items = [];
 var touchNo = [];
-console.log(typeof touchNo);
 
 var drawItems = function() {
+    console.log(typeof touchNo);
     for (var i = 0; i < numSlotsVertical; i++) {
         for (var k = 0; k < numSlotsHorizontal;  k++) {
              var item = document.createElement("button");
@@ -87,6 +87,7 @@ var drawItems = function() {
              box.appendChild(item);
              items.push(item);
              touchNo.push(this.touchNo);
+             console.log(typeof touchNo);
         }
     }
     loadMap();
