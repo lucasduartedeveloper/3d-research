@@ -40,9 +40,17 @@ var add = document.createElement("button");
 add.style.position = "fixed";
 
 var drawItems = function() {
-    for (var k in items) {
-         var item = document.createElement("button");
-         
+    for (var i = 0; i < numSlotsHorizontal; i++) {
+        for (var k = 0; k < numSlotsVerticals;  k++) {
+             var item = document.createElement("button");
+             item.style.border = "1px solid #ccc";
+             item.style.position = "absolute";
+             item.style.left = i*slotWidth+"px":
+             item.style.top = k*slotWidth+"px":
+             item.style.width = slotWidth+"px":
+             item.style.height = slotWidth+"px":
+             document.body.appendChild(item);
+        }
     }
 };
 
