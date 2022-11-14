@@ -33,7 +33,7 @@ box.style.position = "fixed";
 box.style.left = marginLeft+"px";
 box.style.top = marginTop+"px";
 box.style.width = slotWidth*numSlotsHorizontal;
-box.style.height = slotVertical*numSlotVertical;
+box.style.height = slotWidth*numSlotsVerticals;
 document.body.appendChild(box);
 
 var add = document.createElement("button");
