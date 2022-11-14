@@ -74,11 +74,11 @@ var drawItems = function() {
                   list[this.touchNo] : "null";
                   if (this.touchNo == list.length && 
                       typeof list[touchNo[k]] != "undefined") {
-                      items[k].style.fontSize = 
+                      this.style.fontSize = 
                          (slotWidth/(numSlotsHorizontal-1))+"px";
                   }
                  else {
-                     items[k].style.fontSize = 
+                     this.style.fontSize = 
                         (slotWidth/(numSlotsHorizontal+3))+"px";
                  }
              }
@@ -96,6 +96,14 @@ var loadMap = function() {
         touchNo = loaded;
         for (var k in items) {
             items[k].innerText = list[touchNo[k]];
+            if (typeof list[touchNo[k]] != "undefined") {
+                items[k].style.fontSize = 
+                (slotWidth/(numSlotsHorizontal-1))+"px";
+            }
+           else {
+                items[k].style.fontSize = 
+                (slotWidth/(numSlotsHorizontal+3))+"px";
+           }
         }
     }
 }
@@ -134,7 +142,7 @@ var saveMap = function() {
 
 var clear = function() {
     for (var k in items) {
-        touchNo[k] = 5;
+        touchNo[k] = 0;
         console.log(k);
         console.log(list[touchNo[k]]);
         items[k].innerText = list[touchNo[k]];
