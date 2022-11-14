@@ -24,7 +24,7 @@ else {
     slotWidth = sh/20;
     marginTop = 0
     marginLeft = (sw % slotWidth)/2;
-    numSlotsHorizontal = (sh - (marginLeft*2))/slotWidth;
+    numSlotsHorizontal = (sw - (marginLeft*2))/slotWidth;
 }
 
 var box = document.createElement("div");
