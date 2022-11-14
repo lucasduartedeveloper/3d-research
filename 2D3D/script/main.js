@@ -87,7 +87,7 @@ var drawItems = function() {
              }
              box.appendChild(item);
              items.push(item);
-             touchNo.push(this.touchNo);
+             touchNo.push(item.touchNo);
         }
     }
     loadMap();
