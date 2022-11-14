@@ -119,6 +119,7 @@ $(document).ready(function() {
         saveMap();
         if (msg[0] == "2D3D" &&
             msg[1] != playerId) {
+            console.log("received");
             var line = parseInt(msg[2]);
             var column = parseInt(msg[3]);
             var touchNo = parseInt(msg[4]);
