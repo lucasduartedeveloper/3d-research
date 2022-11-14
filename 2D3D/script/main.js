@@ -20,12 +20,20 @@ if (portrait) {
     numSlotsVertical = (sh - (marginTop*2))/slotWidth;
 }
 else {
-
+    numSlotsVertical = 20;
+    slotWidth = sh/20;
+    marginTop = 0
+    marginLeft = (sw % slotWidth)/2;
+    numSlotsHorizontal = (sh - (marginLeft*2))/slotWidth;
 }
 
 var box = document.body.createElement("div");
 box.style.border = "1px solid #ccc";
-box.style.position
+box.style.position = "fixed";
+box.style.left = marginLeft+"px";
+box style.top = marginTop+"px";
+box.style.width = slotWidth*numSlotsHorizontal;
+box.style.height = slotVertical*numSlotVertical;
 
 var add = document.body.createElement("button");
 add.style.position = "fixed";
