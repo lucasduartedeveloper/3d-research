@@ -29,8 +29,8 @@ else {
 
 var box = document.createElement("div");
 box.style.id = "box";
-box.style.border = "1px solid #ccc";
-box.style.position = "fixed";
+box.style.border = "2px solid #ccc";
+box.style.position = "absolute";
 box.style.left = marginLeft+"px";
 box.style.top = marginTop+"px";
 box.style.width = slotWidth*numSlotsHorizontal+"px";
@@ -42,9 +42,9 @@ add.style.position = "fixed";
 
 var drawItems = function() {
     for (var i = 0; i < numSlotsHorizontal; i++) {
-        for (var k = 0; k < numSlotsVerticals;  k++) {
+        for (var k = 0; k < numSlotsVertical;  k++) {
              var item = document.createElement("button");
-             item.style.border = "1px solid #ccc";
+             item.style.border = "2px solid #ccc";
              item.style.position = "absolute";
              item.style.left = i*slotWidth+"px";
              item.style.top = k*slotWidth+"px";
