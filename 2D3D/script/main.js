@@ -116,7 +116,8 @@ var clear = function() {
 $(document).ready(function() {
     drawItems();
     ws.onmessage = function(msg) {
-        saveMap();
+        //msg = "2D3D|"+playerId+"|"+0+"|"+0+"|"+1;
+        msg = msg.split("|");
         if (msg[0] == "2D3D" &&
             msg[1] != playerId) {
             console.log("received");
@@ -126,5 +127,6 @@ $(document).ready(function() {
             items[(line*numSlotsHorizontal)+column]
                .innerHTML = list[touchNo];
         }
+        saveMap();
     };
 });
