@@ -65,9 +65,9 @@ var drawItems = function() {
              item.onclick = function() {
                   this.touchNo++;
                   this.touchNo = 
-                     this.touchNo < list.length ?
+                     this.touchNo <= list.length ?
                      this.touchNo : 0;
-                  this.innerText = this.touchNo <= list.length ?
+                  this.innerText = this.touchNo < list.length ?
                   list[this.touchNo] : "null";
                   ws.send(
                      "2D3D|"+
