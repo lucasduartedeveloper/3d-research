@@ -42,7 +42,7 @@ document.body.appendChild(box);
 var add = document.createElement("button");
 add.style.position = "fixed";
 
-var list = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var list = " 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 var items = [];
 var touchNo = [];
@@ -83,7 +83,7 @@ var loadMap = function() {
     if (loaded) {
         touchNo = loaded;
         for (var k in items) {
-            items[k].innerText = list(touchNo[k]);
+            items[k].innerText = list[touchNo[k]];
         }
     }
 }
