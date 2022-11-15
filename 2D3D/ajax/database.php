@@ -33,7 +33,8 @@ try {
         $rowCount = $stmt->rowCount();
         $details = $stmt->fetchAll(); 
 
-        echo $sql;
+        //echo $sql;
+        echo json_encode($details);
     }
     else if (!empty($_POST["action"]) && 
         $_POST["action"] == "get-config") {
@@ -45,7 +46,8 @@ try {
         $rowCount = $stmt->rowCount();
         $details = $stmt->fetchAll(); 
 
-        echo $sql;
+        //echo $sql;
+        echo json_encode($details);
     }
 }
 catch (PDOException $e) {
