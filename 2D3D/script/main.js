@@ -168,8 +168,10 @@ var loadMap = function() {
         var json = JSON.parse(data);
         //console.log(data);
         loaded = localStorage.getItem("map");
-        loaded = json.value;
+        loaded = json[0].value;
+        //console.log(json);
         if (loaded) {
+            //console.log(loaded);
             touchNo = mapFromString(loaded);
             for (var k in touchNo) {
                 /*console.log(touchNo);
@@ -225,7 +227,7 @@ var saveMap = function() {
         }
     })
     .done(function(data, status, xhr) {
-        console.log(data);
+        //console.log(data);
         localStorage.setItem("map", touchNo);
         console.log("saved");
     });
