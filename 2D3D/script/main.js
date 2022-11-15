@@ -215,8 +215,19 @@ var sendMap = function() {
 };
 
 var saveMap = function() {
-    localStorage.setItem("map", touchNo);
-    console.log("saved");
+    $.ajax({
+        url: "ajax/database.php",
+        method: "POST",
+        datatype: "json",
+        data: { 
+            action: "update-account",
+            value: mapToString()
+        }
+    })
+    .done(function(data, status, xhr) {
+        localStorage.setItem("map", touchNo);
+        console.log("saved");
+    });
 }
 
 var clear = function() {
