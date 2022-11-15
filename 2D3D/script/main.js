@@ -157,7 +157,7 @@ var drawItems = function() {
 
 var loadMap = function() {
     $.ajax({
-        url: "ajax/ragnarok_chat.php",
+        url: "ajax/database.php",
         method: "POST",
         datatype: "json",
         data: { 
