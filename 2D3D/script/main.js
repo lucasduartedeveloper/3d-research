@@ -278,6 +278,8 @@ function say(text) {
 }
 
 $(document).ready(function() {
+    sizeWindow = function() {
+    if (!sw) setTimeout(sizeWindow,5000);
     calculateSize(5);
     drawItems();
     ws.onmessage = function(e) {
@@ -292,5 +294,6 @@ $(document).ready(function() {
         }
         console.log("received");
         saveMap();
-    };
+    };};
+    sizeWindow();
 });
