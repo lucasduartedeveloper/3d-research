@@ -156,27 +156,36 @@ var drawItems = function() {
 };
 
 var loadMap = function() {
-    loaded = localStorage.getItem("map");
-    
-
-    if (loaded) {
-        touchNo = mapFromString(loaded);
-        for (var k in items) {
-            /*console.log(touchNo);
-            console.log(k);
-            console.log(touchNo[k]);
-            console.log(list[touchNo[k]]);*/
-            items[k].innerText = list[touchNo[k]];
-            if (typeof list[touchNo[k]] != "undefined") {
-                items[k].style.fontSize = 
-                (slotWidth)+"px";
-            }
-           else {
-                items[k].style.fontSize = 
-                (slotWidth/3)+"px";
-           }
+    $.ajax({
+        url: "ajax/ragnarok_chat.php",
+        method: "POST",
+        datatype: "json",
+        data: { 
+            action: "get-account"
         }
-    }
+    })
+    .done(function(data, status, xhr) {
+        console.log(data);
+        loaded = localStorage.getItem("map");
+        if (loaded) {
+            touchNo = mapFromString(loaded);
+            for (var k in items) {
+                /*console.log(touchNo);
+                console.log(k);
+                console.log(touchNo[k]);
+                console.log(list[touchNo[k]]);*/
+                items[k].innerText = list[touchNo[k]];
+                if (typeof list[touchNo[k]] != "undefined") {
+                    items[k].style.fontSize = 
+                    (slotWidth)+"px";
+                }
+                else {
+                    items[k].style.fontSize = 
+                    (slotWidth/3)+"px";
+                }
+            }
+        }
+    });
 }
 
 var mapFromString = function(str) {
