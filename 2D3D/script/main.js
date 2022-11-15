@@ -272,7 +272,7 @@ function say(text) {
 }
 
 $(document).ready(function() {
-    calculateSize(2);
+    calculateSize(5);
     drawItems();
     ws.onmessage = function(e) {
         var msg = e.data.split("|");
