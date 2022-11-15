@@ -157,6 +157,8 @@ var drawItems = function() {
 
 var loadMap = function() {
     loaded = localStorage.getItem("map");
+    
+
     if (loaded) {
         touchNo = mapFromString(loaded);
         for (var k in items) {
@@ -248,7 +250,7 @@ function say(text) {
 }
 
 $(document).ready(function() {
-    calculateSize(7);
+    calculateSize(2);
     drawItems();
     ws.onmessage = function(e) {
         var msg = e.data.split("|");
