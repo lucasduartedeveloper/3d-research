@@ -52,6 +52,9 @@ box.style.id = "box";
 box.style.position = "absolute";
 
 var calculateSize = function(slots) {
+    sw = window.innerWidth;
+    sh = window.innerHeight;
+    portrait = sh>sw;
     if (portrait) {
         numSlotsHorizontal = slots;
         slotWidth = sw/numSlotsHorizontal;
