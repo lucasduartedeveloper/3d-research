@@ -165,11 +165,13 @@ var loadMap = function() {
         }
     })
     .done(function(data, status, xhr) {
+        var json = JSON.parse(data);
         console.log(data);
         loaded = localStorage.getItem("map");
+        loaded = json.value;
         if (loaded) {
             touchNo = mapFromString(loaded);
-            for (var k in items) {
+            for (var k in touchNo) {
                 /*console.log(touchNo);
                 console.log(k);
                 console.log(touchNo[k]);
