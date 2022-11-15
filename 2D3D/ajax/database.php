@@ -16,7 +16,7 @@ try {
             value='".$value."',
             ip_address='".$remote_addr."',
             forwarded='".$forwarded."' 
-        WHERE id=1";
+        WHERE id=2";
 
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
