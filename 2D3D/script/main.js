@@ -97,6 +97,7 @@ var drawItems = function() {
     for (var i = 0; i < numSlotsVertical; i++) {
         for (var k = 0; k < numSlotsHorizontal;  k++) {
              var item = document.createElement("button");
+             item.className = "item";
              item.style.border = "2px solid #ccc";
              item.style.position = "absolute";
              item.style.left = k*slotWidth+"px";
@@ -278,6 +279,17 @@ function say(text) {
 }
 
 $(document).ready(function() {
+    motion = true;
+    gyroUpdated = function(e) {
+        var theta = Math.atan2(e.accY, e.accX);
+        // range (-PI, PI]
+        if (theta < 0) theta = (2*Math.PI) + theta; // range [0, 360)
+        theta *= 180 / Math.PI; // rads to degs, range (-180, 180]
+        if (theta < 0) theta = 360 + theta; // range [0, 360)
+
+        //$(".item").css("transform", "rotateZ("+theta+"deg)");
+    };
+
     sizeWindow = function() {
     if (!sw) setTimeout(sizeWindow,5000);
     calculateSize(5);
