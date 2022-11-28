@@ -287,7 +287,7 @@ $(document).ready(function() {
         theta *= 180 / Math.PI; // rads to degs, range (-180, 180]
         if (theta < 0) theta = 360 + theta; // range [0, 360)
 
-        //$(".item").css("transform", "rotateZ("+theta+"deg)");
+        $(".item").css("transform", "rotateZ("+(-theta+90)+"deg)");
     };
 
     sizeWindow = function() {
